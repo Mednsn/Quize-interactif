@@ -8,8 +8,9 @@
  body{
     padding-top :8%;
     display: flex;
-   
-    justify-content: center;
+   flex-direction: column;
+    justify-content:center;
+   align-items: center;
 
     background:#19223c ;
 
@@ -19,7 +20,7 @@
     
     height: 65vh;
     width: 600px;
-    background: #d14d9e;
+    background: #cbdbdcfd;
     border-radius: 12px;
     display:flex;
     flex-direction: column;
@@ -31,9 +32,9 @@
  }
  .div-hero h1{
     margin-bottom: 100px;
-    color: #67e61d;
+    color: #659b1b;
     font-size: 50px;
-    text-shadow: 4px 5px 3px red;
+    text-shadow: 4px 5px 3px rgb(129, 247, 74);
  }
  .div-hero a{
     background: #25E51E;
@@ -47,12 +48,17 @@
     align-items: center;
     border-radius: 12px;
  }
+ .div-hero a:hover{
+   border: 3px solid rgb(37, 123, 31);
+   background: #27f7f7;
+   box-shadow: 0 0 30px rgb(37, 123, 31);
+ }
 
  .divo-hero{
     height: 65vh;
     width: 600px;
    border: 2px solid red;
-   background: #1cedfbfd;
+   background: #cbdbdcfd;
    border-radius: 12px;
    display:grid;
    align-items: center;
@@ -69,15 +75,22 @@
    display: flex;
    flex-direction: column;
    gap: 1rem; 
-   background:rgb(154, 247, 255);
+   background:rgba(189, 191, 208, 0.993);
    border-radius: 12px;
    /* display: grid;
    grid-template-rows: repeat(4,30px); */
   }
   .inputt label{
-   color: #1c0698;
-   font: 1em sans-serif;
+   color: #1a1822;
+   font-family: Arial black;
    font-style:italic;
+  }
+  .inputt div{
+   border: 2px solid ;
+   height: 35px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
   }
 .div-button{
    display: flex;
@@ -96,4 +109,26 @@
     width: 130px;
     height: 45px;
     border-radius: 12px;
+}
+#deuxeme-Section{
+   margin:  60px;
+   background: #b8d9e6;
+   /* height: 200vh; */
+   width: 600px;
+   border: 2px solid rgb(254, 7, 7);
+   border-radius: 10px;
+}
+.div-affichage{
+   
+   padding:20px;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem; 
+  
+   /* display: grid;
+   grid-template-rows: repeat(4,30px); */
+  }
+.div-affichage h3{
+   border: 2px solid rgb(36, 43, 165);
+   border-radius: 6px;
 }
