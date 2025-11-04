@@ -1,21 +1,22 @@
 const QUESTIONS = [
   ["Quelle est la capitale de la France ?", "madrid", "rabat", "paris", "birlin", "paris"],
   ["Combien font 5 + 3 ?", "3", "6", "9", "8", "8"],
-  ["Quel est le fleuve le plus long du monde ?", "draa", "dahir", "Nil", "kotliner", "Nil"]
-];
+  ["Quelle est la couleur du ciel par temps clair ?", "vers", "bleu", "noir", "rouge", "bleu"],
 
-  // ["Quelle est la couleur du ciel par temps clair ?", "vers", "bleu", "noir", "rouge", "bleu"],
-  // ["Quel est le plus grand océan ?", "atlantique", "indien", "arctique", "Pacifique", "Pacifique"],
-  // ["Combien de jours dans une semaine ?", "7", "6", "1", "9", "7"],
-  // ["Combien de pattes a une araignée ?", "10", "8", "5", "7", "3"],
-  // ["Quelle est la capitale de l'Espagne ?", "Madrid", "almeria", "casa", "barcelona", "Madrid",],
-  // ["Combien de continents y a-t-il sur Terre ?", "5", "3", "7", "1", "7"],
-  // ["Quelle est la langue officielle du Brésil ?", "ortogole", "patricate", "portugais", "spartacosse", "portugais"],
-  // ["Quel est l'animal le plus rapide du monde ?", "guépard", "tiger", "aigle", "lion", "guépard"],
-  // ["Combien de secondes dans une minute ?", "40", "60", "90", "70", "60"],
-  // ["Quel est le plus grand pays du monde ?", "maroc", "okran", "nighterant", "Russie", "Russie"],
-  // ["De quelle couleur est une banane mûre ?", "rouge", "noir", "jaune", "vere", "jaune"],
-  // ["Quelle planète est la plus proche du Soleil ?", "Mercure", "tére", "moon", "Mercured", "Mercure"],
+  ["Quelle planète est la plus proche du Soleil ?", "Mercure", "tére", "moon", "Mercured", "Mercure"]
+  // ["Quel est le fleuve le plus long du monde ?", "draa", "dahir", "Nil", "kotliner", "Nil"]
+];
+// ["Quel est le plus grand océan ?", "atlantique", "indien", "arctique", "Pacifique", "Pacifique"],
+// ["Combien de jours dans une semaine ?", "7", "6", "1", "9", "7"],
+// ["Combien de pattes a une araignée ?", "10", "8", "5", "7", "3"],
+// ["Quelle est la capitale de l'Espagne ?", "Madrid", "almeria", "casa", "barcelona", "Madrid",],
+// ["Combien de continents y a-t-il sur Terre ?", "5", "3", "7", "1", "7"],
+// ["Quelle est la langue officielle du Brésil ?", "ortogole", "patricate", "portugais", "spartacosse", "portugais"],
+// ["Quel est l'animal le plus rapide du monde ?", "guépard", "tiger", "aigle", "lion", "guépard"],
+// ["Combien de secondes dans une minute ?", "40", "60", "90", "70", "60"],
+// ["Quel est le plus grand pays du monde ?", "maroc", "okran", "nighterant", "Russie", "Russie"],
+// ["De quelle couleur est une banane mûre ?", "rouge", "noir", "jaune", "vere", "jaune"],
+
 
 var bonnesReponse = 0;
 var k = 0, i = 0;
@@ -39,71 +40,66 @@ buttonPrecedant.style.visibility = "hidden";
 
 
 
-// !*********************************
 
-// function refuseCHeck() {
-
-//   const checkedup = document.getElementsByName('choix');
-
-//   checkedup.forEach(radio => {
-
-//     if (radio.checked) {
-//       radio.checked = false;
-
-//     }
-//   })
-// }
 
 
 
 
 //function checkign()***********************************
-
+var conteur = 0;
 function checkingFUNC() {
 
   const checkedup = document.querySelectorAll(".choix");
+  var reponseCorrect = 0;
 
-  checkedup.forEach(radio => {
-    radio.addEventListener('change', function () {
-      if (radio.checked) {
-        btnSuivant()
+  checkedup.forEach(radio=> {
+
+    if (radio.checked) {
+      let outputRV = radio.value;
+      let outputQS = QUESTIONS[i][5];
+      if (outputRV === outputQS) {
+        reponseCorrect++;
+      }
+      k++;
+      buttonPrecedant.style.visibility = "visible"
+      i++;
+      // 14
+      if (i >= 3) {
+        buttonSuivant.innerText = "Terminer"
+      } else {
+        buttonSuivant.innerText = "suivant"
+      }
+      // 15
+      if (i == 4) {
+        terminer();
 
       }
-    })
 
-  })
+      document.getElementById("question").innerText = QUESTIONS[i][0]
+      document.getElementById("choix11").innerText = QUESTIONS[i][1]
+      document.getElementById("choix22").innerText = QUESTIONS[i][2]
+      document.getElementById("choix33").innerText = QUESTIONS[i][3]
+      document.getElementById("choix44").innerText = QUESTIONS[i][4]
+
+      radio.checked = false;
+
+    }
+
+  });
+ document.getElementById("div-h2-score").textContent=  "votre resultats est : "+reponseCorrect+"/15." ;
+
 }
 
-checkingFUNC()
 
+btnSuivant()
 //***********************************
+
 function btnSuivant() {
 
   buttonSuivant.addEventListener('click', function () {
-    k++;
-    buttonPrecedant.style.visibility = "visible"
-    i++;
-    // 14
-    if (i >= 2) {
-      buttonSuivant.innerText = "Terminer"
-    } else {
-      buttonSuivant.innerText = "suivant"
-    }
-    // 15
-    if (i == 3) {
-      terminer();
-        
-    }
-
-    document.getElementById("question").innerText = QUESTIONS[i][0]
-    document.getElementById("choix11").innerText = QUESTIONS[i][1]
-    document.getElementById("choix22").innerText = QUESTIONS[i][2]
-    document.getElementById("choix33").innerText = QUESTIONS[i][3]
-    document.getElementById("choix44").innerText = QUESTIONS[i][4]
-
-  
-
-  })
+    checkingFUNC()
+  }
+  )
 }
 
 //************************************ 
@@ -147,11 +143,8 @@ function terminer() {
     questionSct2.textContent = QUESTIONS[i][0];
     repnse.forEach((raio, index) => {
       raio.textContent = QUESTIONS[i][index + 1];
-      console.log(raio);
+
     });
-    // repnse[1].textContent=QUESTIONS[i][2];
-    // repnse[2].textContent=QUESTIONS[i][3];
-    // repnse[3].textContent=QUESTIONS[i][4];
 
 
     conteneurDiv.appendChild(clone);
@@ -159,8 +152,8 @@ function terminer() {
   }
 }
 ///****************************** */
-ajouterValus()
-function ajouterValus() {
+ajouterValue()
+function ajouterValue() {
   const checkedup = document.getElementsByName('choix');
   for (let i = 0; i < QUESTIONS.length; i++) {
     checkedup.forEach((radio, index) => {
@@ -170,31 +163,4 @@ function ajouterValus() {
   }
 }
 // !!!!!!**********************************!!!!!!!!!!!!!!
-function verify() {
-  var tabReponce = document.querySelectorAll(".choix")
-  var reponseCorrect = 0;
-  for (let i = 0; i < QUESTIONS.length; i++) {
-    for (let j = 0; j < 4; j++) {
-      if (tabReponce[j].checked) {
 
-        if (tabReponce[j].value == QUESTIONS[i][5]) {
-          reponseCorrect++;
-
-        }
-
-      }
-    }
-
-  }
-  document.getElementById("div-score").textContent="reponseCorrect" ;
-}
-
-
-
-
-//       document.getElementById("question").innerHTML = QUESTIONS[i][0];
-//       inputText.innerHTML = QUESTIONS[0][0]
-//       inputText.innerHTML = QUESTIONS[i][1].toLowerCase().trim();
-//         if (inputTextLower === reponseCorrecte) {
-//           bonnesReponse++;
-// }    }
