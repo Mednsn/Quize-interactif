@@ -20,7 +20,7 @@
     
     height: 65vh;
     width: 600px;
-    background: #cbdbdcfd;
+    background: #23b548fd;
     border-radius: 12px;
     display:flex;
     flex-direction: column;
@@ -32,12 +32,12 @@
  }
  .div-hero h1{
     margin-bottom: 100px;
-    color: #659b1b;
+    color: #232d96;
     font-size: 50px;
     text-shadow: 4px 5px 3px rgb(129, 247, 74);
  }
  .div-hero a{
-    background: #25E51E;
+    background: #cdd6cd;
     width: 130px;
     height: 45px;
     font: 1em sans-serif;
@@ -50,7 +50,7 @@
  }
  .div-hero a:hover{
    border: 3px solid rgb(37, 123, 31);
-   background: #27f7f7;
+   background: #88a9a9;
    box-shadow: 0 0 30px rgb(37, 123, 31);
  }
 
